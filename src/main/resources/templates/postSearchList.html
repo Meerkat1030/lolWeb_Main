@@ -250,6 +250,26 @@ font-weight: bolder">
                             </tbody>
                         </table>
                         <table  class="table table-borderless table-hover" th:if="${have == false or #lists.isEmpty(have)}">
+                            <div th:if="${type == 'default'}">
+                                            <span class="boardType" value="default" style="font-size: 12px; margin-bottom: 4px;"
+                                                  th:text="자유게시판"></span>
+                            </div>
+                            <div th:if="${type == 'simulation'}">
+                                            <span class="boardType" value="simulation" style="font-size: 12px; margin-bottom: 4px;"
+                                                  th:text="시뮬공유"></span>
+                            </div>
+                            <div th:if="${type == 'movie'}">
+                                            <span class="boardType" value="movie" style="font-size: 12px; margin-bottom: 4px;"
+                                                  th:text="메드무비"></span>
+                            </div>
+                            <div th:if="${type == 'roulette'}">
+                                            <span class="boardType" value="roulette" style="font-size: 12px; margin-bottom: 4px;"
+                                                  th:text="룰렛게시판"></span>
+                            </div>
+                            <div th:if="${type == 'poll'}">
+                                            <span class="boardType" value="poll" style="font-size: 12px; margin-bottom: 4px;"
+                                                  th:text="투표게시판"></span>
+                            </div>
                             <thead>
                             <!-- 검색어 출력 -->
                             <td colspan="5" class="searchResult">
@@ -614,6 +634,7 @@ font-weight: bolder">
         var keyword = $("#freeSearch").val();
         var selectedValue = $("#sortOption").val();
         var type = $(".boardType").attr("value");
+        console.log(type);
         // 필요한 데이터를 수집하고 이를 URL에 추가합니다.
         // URLSearchParams 객체를 생성하고 쿼리 매개변수를 추가합니다.
         var params = new URLSearchParams();

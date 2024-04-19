@@ -782,7 +782,22 @@ public String simulCreate(Model model,
     model.addAttribute("option", option);
 
 //    model.addAttribute("option", option);
-    return "readSearchPost";
+    if (type.equals("movie")) {
+      return "movieSearchPost";
+    } else if (type.equals("poll")) {
+      return "pollSearchPost";
+    } else if (type.equals("simulation")) {
+      SimulationDTO simulationDTO = simulationService.getSimulationDtoById(postId);
+      System.out.println("simulationDTO ::: "+ simulationDTO);
+      model.addAttribute("simulation", simulationDTO);
+
+      return "simulSearchPost";
+    } else if (type.equals("roulette")) {
+      return "rouletteSearchPost";
+    } else {
+      return "readPost";
+    }
+//    return "readSearchPost";
   }
 
   // 게시글 좋아요

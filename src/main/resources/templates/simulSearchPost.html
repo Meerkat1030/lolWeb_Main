@@ -139,7 +139,7 @@ font-weight: bolder">
                                             <!--챔피언 아이콘 이미지-->
                                             <div class="btn-blue" type="" id="champion-img"
                                                     style="width: 66px; height: 66px; ">
-                                                <img class="portrait img-fluid mx-auto champion-img"th:src="${simulation.getChampionImageUrl()}"  id="left-champ-portrait"
+                                                <img class="portrait img-fluid mx-auto champion-img" th:if="${simulation.getChampionName()!='null'}" th:src="${simulation.getChampionImageUrl()}"  id="left-champ-portrait"
                                                      />
                                             </div>
                                         </div>
@@ -148,32 +148,32 @@ font-weight: bolder">
                                             <!-- 아이템 선택 개별창 -->
                                             <div>
                                                 <div id="iBox0" class="item_box" data-idx ="0">
-                                                    <img class="portrait img-fluid mx-auto champion-img" th:if="${simulation.getItem1ImageUrl()!=null}" th:src="${simulation.getItem1ImageUrl()}"/>
+                                                    <img class="portrait img-fluid mx-auto champion-img" th:if="${simulation.getItem1()!='null'}" th:src="${simulation.getItem1ImageUrl()}"/>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div id="iBox1" class="item_box" data-idx ="1">
-                                                    <img class="portrait img-fluid mx-auto champion-img" th:if="${simulation.getItem2ImageUrl()!=null}" th:src="${simulation.getItem2ImageUrl()}"/>
+                                                    <img class="portrait img-fluid mx-auto champion-img" th:if="${simulation.getItem2()!='null'}" th:src="${simulation.getItem2ImageUrl()}"/>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div id="iBox2" class="item_box" data-idx ="2">
-                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem3ImageUrl()!=null}" th:src="${simulation.getItem3ImageUrl()}"/>
+                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem3()!='null'}" th:src="${simulation.getItem3ImageUrl()}"/>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div id="iBox3" class="item_box" data-idx ="3">
-                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem4ImageUrl()!=null}" th:src="${simulation.getItem4ImageUrl()}"/>
+                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem4()!='null'}" th:src="${simulation.getItem4ImageUrl()}"/>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div id="iBox4" class="item_box" data-idx ="4">
-                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem5ImageUrl()!=null}"th:src="${simulation.getItem5ImageUrl()}"/>
+                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem5()!='null'}"th:src="${simulation.getItem5ImageUrl()}"/>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div id="iBox5" class="item_box" data-idx ="5">
-                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem6ImageUrl()!=null}"th:src="${simulation.getItem6ImageUrl()}"/>
+                                                    <img class="portrait img-fluid mx-auto champion-img"th:if="${simulation.getItem6()!='null'}"th:src="${simulation.getItem6ImageUrl()}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,7 +216,7 @@ font-weight: bolder">
 
                         </div>
                         <div class="col">
-                            <a th:href="@{'/post/list/search?option=' + ${option} + '&keyword=' + ${keyword} + '&page=' + ${page}}">
+                            <a th:href="@{'/post/list/search/'+${type}+'?option=' + ${option} + '&keyword=' + ${keyword} + '&page=' + ${page}}">
                                 <button class="col btn btn-info" style="font-size: medium">목록</button>
                             </a>
                         </div>
